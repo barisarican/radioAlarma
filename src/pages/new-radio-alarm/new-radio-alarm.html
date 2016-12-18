@@ -1,0 +1,54 @@
+<!--
+  Generated template for the NewRadioAlarm page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button round color="danger" (click)="cancel()">Cancel</button>
+    </ion-buttons>
+    <ion-title>Add Radio Alarm</ion-title>
+    <ion-buttons end>
+      <button ion-button round color="danger" (click)="save()">Save</button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Alarm Date</ion-label>
+    <ion-datetime displayFormat="HH:mm" [(ngModel)]="newRadioAlarm.alarm.date"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Repeat</ion-label>
+    <ion-select multiple="true" [(ngModel)]="newRadioAlarm.alarm.repeat">
+      <ion-option value="monday">Every Monday</ion-option>
+      <ion-option value="tuesday">Every Tuesday</ion-option>
+      <ion-option value="wednesday">Every Wednesday</ion-option>
+      <ion-option value="thursday">Every Thursday</ion-option>
+      <ion-option value="friday">Every Friday</ion-option>
+      <ion-option value="saturday">Every Saturday</ion-option>
+      <ion-option value="sunday">Every Sunday</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Label</ion-label>
+    <ion-input [(ngModel)]="newRadioAlarm.label"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Radio</ion-label>
+    <ion-select multiple="false" [(ngModel)]="newRadioAlarm.radio">
+      <ion-option *ngFor="let radio of radios" [value]="radio">
+        {{radio.name}}
+      </ion-option>
+    </ion-select>
+  </ion-item>
+
+</ion-content>

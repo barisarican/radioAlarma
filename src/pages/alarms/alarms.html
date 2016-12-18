@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <ion-icon name="alarm"></ion-icon>
+    </ion-buttons>
+    <ion-title>Alarms</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="navigateNewRadioAlarm($event)">
+          <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list *ngFor="let radioAlarm of radioAlarms">
+
+    <ion-item>
+      <ion-avatar item-left>
+        <img [src]="radioAlarm.radio.iconUrl">
+        <p>{{radioAlarm.radio.name}}</p>
+      </ion-avatar>
+      <div item-content>
+        <h3>{{radioAlarm.alarm.date}}</h3>
+        <p>{{radioAlarm.label}}</p>
+        <p> {{radioAlarm.alarm.repeat}}</p>
+      </div>
+      <ion-toggle item-right clear [checked]="radioAlarm.isActive"></ion-toggle>
+    </ion-item>
+  </ion-list>
+</ion-content>
